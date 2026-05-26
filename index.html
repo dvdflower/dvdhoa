@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DvD Flowers RPG</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+
+<h1>🌸 DvD Flowers RPG</h1>
+
+<p>Fantasy Flower Collection</p>
+
+<div class="stats">
+
+<div>
+🌸 Hoa
+<span id="flowerCount">0</span>
+</div>
+
+<div>
+👥 Thành viên
+<span id="memberCount">0</span>
+</div>
+
+</div>
+
+</header>
+
+<nav class="menu">
+
+<button onclick="showSection('searchSection')">
+🔎 Tra cứu
+</button>
+
+<button onclick="showSection('memberSection')">
+👥 Thành viên
+</button>
+
+<button onclick="showSection('flowerSection')">
+🌸 Danh sách hoa
+</button>
+
+<button onclick="adminLogin()">
+🔐 Admin
+</button>
+
+</nav>
+
+<section id="searchSection" class="section active">
+
+<input
+id="searchInput"
+placeholder="Tìm hoa hoặc người sở hữu"
+oninput="searchFlowers()">
+
+<div id="flowerGrid"></div>
+
+</section>
+
+<section id="memberSection" class="section">
+
+<h2>👥 Thành viên</h2>
+
+<div id="memberGrid"></div>
+
+</section>
+
+<section id="flowerSection" class="section">
+
+<h2>🌸 Danh sách hoa</h2>
+
+<div class="type-buttons">
+
+<button onclick="filterType('Hoa Gói')">
+Hoa Gói
+</button>
+
+<button onclick="filterType('Hoa Xu')">
+Hoa Xu
+</button>
+
+</div>
+
+<div id="typeGrid"></div>
+
+</section>
+
+<section id="adminSection" class="section">
+
+<h2>🌷 Admin</h2>
+
+<input id="memberName" placeholder="Tên ingame">
+
+<input id="memberZalo" placeholder="Tên zalo">
+
+<input id="flowerName" placeholder="Tên hoa">
+
+<select id="flowerType">
+
+<option>Hoa Gói</option>
+<option>Hoa Xu</option>
+
+</select>
+
+<select id="flowerRarity">
+
+<option>HOA ĐỎ</option>
+<option>HOA CAM</option>
+<option>HOA TÍM</option>
+<option>HOA LAM</option>
+<option>HOA LỤC</option>
+
+</select>
+
+<input
+type="file"
+id="flowerImage"
+accept="image/*">
+
+<button onclick="addFlower()">
+➕ Thêm hoa
+</button>
+
+</section>
+
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle"></h2>
+
+<div id="modalBody"></div>
+
+<button onclick="closeModal()">
+Đóng
+</button>
+
+</div>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
